@@ -1,0 +1,43 @@
+<div class="fb-style-container">
+  <div class="brand-section">
+    <h1>MHospital</h1>
+    <p>Manage your health records, connect with doctors, and track your medical history easily.</p>
+  </div>
+
+  <div class="auth-card">
+    <div *ngIf="isLoginMode" class="form-content">
+      <input 
+        type="email" 
+        name="loginEmail" 
+        placeholder="Email Address" 
+        [(ngModel)]="loginEmail">
+
+      <input 
+        type="password" 
+        name="loginPassword" 
+        placeholder="Password" 
+        [(ngModel)]="loginPassword">
+
+      <button class="btn-login" (click)="onLogin()">Log In</button>
+      <hr>
+      <button class="btn-create" (click)="toggleMode()">Create New Account</button>
+    </div>
+
+    <div *ngIf="!isLoginMode" class="form-content">
+      <h3>Sign Up</h3>
+      <div class="role-selector">
+        <label><input type="radio" name="role" [(ngModel)]="regType" value="patient"> Patient</label>
+        <label><input type="radio" name="role" [(ngModel)]="regType" value="doctor"> Doctor</label>
+      </div>
+
+      <form [formGroup]="regForm" (ngSubmit)="onRegister()">
+        <input type="text" formControlName="fullName" placeholder="Full Name">
+        <input type="text" formControlName="nic" placeholder="NIC Number">
+        <input type="email" formControlName="email" placeholder="Email Address">
+        <input type="password" formControlName="password" placeholder="New Password">
+        <button type="submit" class="btn-create" [disabled]="regForm.invalid">Sign Up</button>
+      </form>
+      <p class="toggle-link" (click)="toggleMode()">Already have an account? Log In</p>
+    </div>
+  </div>
+</div>

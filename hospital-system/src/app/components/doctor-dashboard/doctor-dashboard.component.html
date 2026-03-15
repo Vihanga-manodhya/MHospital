@@ -1,4 +1,67 @@
-<div class="doctor-dashboard">
-  <h1>Doctor Dashboard</h1>
-  <p>Welcome to the Doctor Dashboard</p>
+<div class="app-container">
+  <nav class="side-nav">
+    <div class="brand">M-PRO <span>v2.0</span></div>
+    <ul class="nav-links">
+      <li class="active"><i class="icon">📊</i> Dashboard</li>
+      <li><i class="icon">📅</i> Schedule</li>
+      <li><i class="icon">📁</i> Medical Files</li>
+      <li><i class="icon">🧪</i> Lab Results</li>
+    </ul>
+    <div class="session-timer">Auto-Logout: {{ remainingTime }}s</div>
+  </nav>
+
+  <main class="content-area">
+    <header class="search-header">
+      <div class="search-bar">
+       <input 
+  type="text" 
+  [(ngModel)]="searchQuery" 
+  (keyup.enter)="onSearch()" 
+  placeholder="Type NIC and press Enter...">
+        <button (click)="onSearch()" [disabled]="isSearching">
+          {{ isSearching ? 'Searching...' : 'Find Patient' }}
+        </button>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <section class="left-pane" *ngIf="!selectedPatient">
+        <div class="grid-stats">
+          <div class="glass-card"><h4>Queue</h4><p>8 Patients</p></div>
+          <div class="glass-card"><h4>Surgery</h4><p>14:00 PM</p></div>
+        </div>
+        <div class="announcement">
+          <h4>Hospital Memo</h4>
+          <p>System maintenance scheduled for 12:00 AM tonight.</p>
+        </div>
+      </section>
+
+      <section class="consultation-box" *ngIf="selectedPatient">
+        <div class="patient-header">
+          <div class="avatar">{{ selectedPatient.fullName[0] }}</div>
+          <div class="p-info">
+            <h2>{{ selectedPatient.fullName }}</h2>
+            <p>NIC: {{ selectedPatient.nic }} | Phone: {{ selectedPatient.phone }}</p>
+          </div>
+          <button class="close-btn" (click)="selectedPatient = null">Close</button>
+        </div>
+
+        <div class="med-history-preview">
+          <h4>Recent Vitals: <span class="badge">BP: 120/80</span> <span class="badge">Sugar: 110mg/dl</span></h4>
+        </div>
+
+        <div class="editor-grid">
+          <div class="field">
+            <label>Final Diagnosis</label>
+            <textarea [(ngModel)]="diagnosis" placeholder="Describe the condition..."></textarea>
+          </div>
+          <div class="field">
+            <label>E-Prescription (Rx)</label>
+            <textarea [(ngModel)]="prescription" placeholder="Dosage, Frequency..."></textarea>
+          </div>
+        </div>
+        <button class="btn-save" (click)="saveConsultation()">Update Patient Records</button>
+      </section>
+    </div>
+  </main>
 </div>

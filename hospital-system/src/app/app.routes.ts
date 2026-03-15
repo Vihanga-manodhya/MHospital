@@ -3,15 +3,16 @@ import { PatientRegistrationComponent } from './components/patient-registration/
 import { LoginComponent } from './components/login/login';
 import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-dashboard.component';
 import { DoctorRegistrationComponent } from './components/doctor-registration/doctor-registration';
+import { AuthHomeComponent } from './components/auth-home/auth-home';
+
 
 export const routes: Routes = [
-  // මුලින්ම localhost එකට යනකොට පෙන්වන component එක - redirect to login
+  { path: '', component: AuthHomeComponent },
+
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   
-  // එහෙමත් නැත්නම් /login කියන URL එකට ගියහම පෙන්වන්න
   { path: 'login', component: LoginComponent },
 
-  // එහෙමත් නැත්නම් /register කියන URL එකට ගියහම පෙන්වන්න
   { path: 'register', component: PatientRegistrationComponent },
 
   // Doctor Dashboard route
@@ -19,5 +20,6 @@ export const routes: Routes = [
 
   { path: 'doctor-reg', component: DoctorRegistrationComponent },
 
+  { path: 'doctor-dashboard', component: DoctorDashboardComponent },
 ];
 

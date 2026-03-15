@@ -1,0 +1,85 @@
+.fb-style-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+  padding: 0 10%;
+}
+
+.brand-section {
+  flex: 1;
+  padding-right: 50px;
+}
+
+.brand-section h1 {
+  color: #1877f2;
+  font-size: 4rem;
+  margin-bottom: 0;
+}
+
+.brand-section p {
+  font-size: 1.5rem;
+  color: #1c1e21;
+}
+
+.auth-card {
+  width: 400px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-content input {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border: 1px solid #dddfe2;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.btn-login {
+  width: 100%;
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-create {
+  width: 100%;
+  background-color: #42b72a;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.role-selector {
+  margin: 10px 0;
+  display: flex;
+  gap: 20px;
+}
+
+.toggle-link {
+  color: #1877f2;
+  text-align: center;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .fb-style-container { flex-direction: column; padding: 20px; }
+  .brand-section { text-align: center; padding: 0; margin-bottom: 30px; }
+  .brand-section h1 { font-size: 3rem; }
+}
