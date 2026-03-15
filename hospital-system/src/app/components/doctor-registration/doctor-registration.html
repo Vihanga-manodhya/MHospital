@@ -1,0 +1,33 @@
+<div class="reg-container">
+  <h2>Doctor Registration</h2>
+  
+  <form [formGroup]="doctorForm" (ngSubmit)="onRegister()">
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" formControlName="fullName" placeholder="Dr. Kamal Perera">
+    </div>
+
+    <div class="form-group">
+      <label>Specialty</label>
+      <input type="text" formControlName="specialty" placeholder="Cardiologist">
+    </div>
+
+    <div class="form-group">
+      <label>Medical License No</label>
+      <input type="text" formControlName="licenseNo" placeholder="SLMC-12345">
+    </div>
+
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" formControlName="email">
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" formControlName="password">
+    </div>
+
+    <button type="submit" [disabled]="doctorForm.invalid">Register Doctor</button>
+  </form>
+  <a routerLink="/login">Already have an account? Login</a>
+</div>

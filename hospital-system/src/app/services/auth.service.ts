@@ -33,3 +33,5 @@ export class AuthService {
     return docSnap.exists() ? 'doctor' : 'patient';
   }
 }
+
+
