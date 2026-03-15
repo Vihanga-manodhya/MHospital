@@ -1,11 +1,10 @@
-// src/app/app.routes.ts
 import { Routes } from '@angular/router';
 import { PatientRegistrationComponent } from './components/patient-registration/patient-registration.component';
 
 export const routes: Routes = [
-  // This makes the form appear at http://localhost:4200/register
-  { path: 'register', component: PatientRegistrationComponent },
+  // මුලින්ම localhost එකට යනකොට පෙන්වන component එක
+  { path: '', component: PatientRegistrationComponent }, 
   
-  // Optional: This makes the form the default page (http://localhost:4200/)
-  { path: '', redirectTo: 'register', pathMatch: 'full' }
+  // එහෙමත් නැත්නම් /register කියන URL එකට ගියහම පෙන්වන්න
+  { path: 'register', component: PatientRegistrationComponent },
 ];

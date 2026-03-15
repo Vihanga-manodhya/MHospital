@@ -2,6 +2,7 @@
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
 // Import Firebase modules
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
@@ -27,5 +28,10 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    // මෙතන AuthService එක තිබේ නම් අයින් කරන්න
   ]
 };
+
+
+
